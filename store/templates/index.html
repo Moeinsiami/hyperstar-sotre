@@ -550,7 +550,7 @@
           </a>
         </li>
         <li class="text-zinc-700 hover:text-zinc-600 hover:bg-gray-100 transition p-2 rounded-lg">
-          <a href="./contact-us.html">
+          <a href="{% url 'store:contact_us' %}">
             ارتباط با ما
           </a>
         </li>
@@ -715,6 +715,7 @@
                 </div>
               </div>
             </div>
+            {% for product in products %}
             <div class="card swiper-slide my-2 p-2 md:p-3 bg-white rounded-xl relative group shadow-lg">
               <div class="countdown flex flex-row-reverse justify-start items-center gap-x-1 text-white bg-cyan-500 rounded-full px-2 py-1 mr-auto w-fit">
                 <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="" viewBox="0 0 256 256"><path d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216ZM61.66,37.66l-32,32A8,8,0,0,1,18.34,58.34l32-32A8,8,0,0,1,61.66,37.66Zm176,32a8,8,0,0,1-11.32,0l-32-32a8,8,0,0,1,11.32-11.32l32,32A8,8,0,0,1,237.66,69.66ZM184,128a8,8,0,0,1,0,16H128a8,8,0,0,1-8-8V80a8,8,0,0,1,16,0v48Z"></path></svg>
@@ -738,27 +739,26 @@
                 4.7
               </div>
               <div class="image-box mb-6 ">
-                <img class="w-full mx-auto" src="./static/assets/image/products/1.webp" alt="" />
+                <img class="w-full mx-auto" src="{{ product.file.url }}" alt="" />
               </div>
-              <p class="text-xs md:text-sm text-gray-400">
-                apple watch s pro ff
-              </p>
-              <a href="" class="text-gray-700 font-semibold text-sm md:text-base">
-                ساعت هوشمند اپل واچ سری 7 نسخه 35 میلی متری
+{#              <p class="text-xs md:text-sm text-gray-400">#}
+{#                apple watch s pro ff#}
+{#              </p>#}
+              <a href="" class="text-gray-700 font-semibold text-sm md:text-base">{{ product.name }}
               </a>
               <div class="mt-8 flex flex-row-reverse items-center justify-between">
                 <div class="space-y-2">
                   <div class="flex justify-end opacity-65">
-                    <div class="line-through decoration-gray-500 text-xs">1.350.000</div>
+                    <div class="line-through decoration-gray-500 text-xs">{{ product.price }}</div>
                     <div class="line-through decoration-gray-500 text-xs">تومان</div>
                   </div>
                   <div class="flex flex-row-reverse items-center gap-x-1">
                     <div class="flex justify-end mt-1 mb-1 text-zinc-800 font-semibold">
-                      <div class="text-sm md:text-base">1.100.000</div>
+                      <div class="text-sm md:text-base">{{ product.newprice }}</div>
                       <div class="text-sm md:text-base">تومان</div>
                     </div>
                     <div class="bg-blue-500 h-fit text-white rounded-full text-xs md:text-sm px-2 py-1">
-                      30%
+                      {{ product.off }}
                     </div>
                   </div>
                 </div>
@@ -775,6 +775,7 @@
                 </a>
               </div>
             </div>
+            {% endfor %}
             <div class="card swiper-slide my-2 p-2 md:p-3 bg-white rounded-xl relative group shadow-lg">
               <div class="countdown flex flex-row-reverse justify-start items-center gap-x-1 text-white bg-cyan-500 rounded-full px-2 py-1 mr-auto w-fit">
                 <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="" viewBox="0 0 256 256"><path d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216ZM61.66,37.66l-32,32A8,8,0,0,1,18.34,58.34l32-32A8,8,0,0,1,61.66,37.66Zm176,32a8,8,0,0,1-11.32,0l-32-32a8,8,0,0,1,11.32-11.32l32,32A8,8,0,0,1,237.66,69.66ZM184,128a8,8,0,0,1,0,16H128a8,8,0,0,1-8-8V80a8,8,0,0,1,16,0v48Z"></path></svg>
@@ -1278,6 +1279,7 @@
         </div>
         <div class="swiper productSlider2">
           <div class="swiper-wrapper items-start pb-5">
+              {% for product in newest_products %}
             <div class="card swiper-slide relative my-2 p-2 md:p-3 bg-white rounded-xl group shadow-lg border border-zinc-200">
               <div class="absolute left-3 text-gray-600 opacity-0 group-hover:opacity-100 transition-all text-xs md:text-sm flex flex-col items-center">
                 <svg class="fill-yellow-500 size-4 md:size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path></svg>
@@ -1287,10 +1289,10 @@
               <div class="my-5">
                 <div class="flex flex-col gap-y-1">
                   <a href="" class="text-zinc-700 text-sm md:text-base">
-                    تلویزیون سامسونگ 43 اینچ
+                      {{ product.name }}
                   </a>
                   <div class="text-blue-800 text-base md:text-lg">
-                    9,630,000 تومان
+                    {{ product.price }}تومان
                   </div>
                 </div>
               </div>
@@ -1298,6 +1300,7 @@
                 مشاهده و خرید
               </a>
             </div>
+              {% endfor %}
             <div class="card swiper-slide relative my-2 p-2 md:p-3 bg-white rounded-xl group shadow-lg border border-zinc-200">
               <div class="absolute left-3 text-gray-600 opacity-0 group-hover:opacity-100 transition-all text-xs md:text-sm flex flex-col items-center">
                 <svg class="fill-yellow-500 size-4 md:size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path></svg>
