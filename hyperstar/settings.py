@@ -124,9 +124,20 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [BASE_DIR / "store/static"]
+#
+# MEDIA_URL = '/images/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "store/static"]
+#
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'moeins1216@gmail.com'  # Your email address
+# EMAIL_HOST_PASSWORD = '13.84.Mmm'       # Your email password
+# DEFAULT_FROM_EMAIL = 'moeins1216@gmail.com'
+# PERSONAL_EMAIL = 'moeins1216@gmail.com'
 
-MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
