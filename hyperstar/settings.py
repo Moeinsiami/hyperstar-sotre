@@ -77,11 +77,14 @@ WSGI_APPLICATION = 'hyperstar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hyperstar',
+        'USER': 'moein',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -124,14 +127,15 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = [BASE_DIR / "store/static"]
-#
-# MEDIA_URL = '/images/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
-#
+STATIC_URL = '/static/'  # URL to access static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Path where you store static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Destination for collected static files (for production)
+
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_PORT = 587
